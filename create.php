@@ -28,9 +28,20 @@ if ($result !== false) {
   exec('sudo a2ensite ' . $serverName . '.conf');
 
   // Restart Apache
-  exec('sudo service apache2 restart');
+  exec('sudo apachectl graceful');
 
-  echo 'Virtual host created successfully';
+  // Set the response message
+  $response['message'] = 'Virtual host created successfully';
+
+  // Set the HTTP status code to 200 (OK)
+  http_response_code(200);
 } else {
-  echo 'Error creating virtual host';
+  // Set the response message
+  $response['message'] = 'Error creating virtual host';
+
+  // Set the HTTP status code to 500 (Internal Server Error)
+  http_response_code(500);
 }
+
+// Set the content type to JSON
+header('Content-Type: application/json');
