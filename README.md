@@ -9,7 +9,13 @@ https://api.hifyc.link/delete-config.php?config_file=dev.cloud443.in-le-ssl.conf
 
 
 www-data ALL=(ALL) NOPASSWD: /usr/sbin/a2ensite
+
+
 www-data ALL=(ALL) NOPASSWD: /usr/sbin/service apache2 restart
+
+
 www-data ALL=(ALL) NOPASSWD: /usr/bin/certbot
+
+
 www-data ALL=(ALL) NOPASSWD: /usr/sbin/a2dissite
 
